@@ -14,13 +14,14 @@ int main()
     Simple_window win {Point{100,100}, xmax, ymax, "Canvas"};
 
     Lines grid;
-    for (int i = 1; i < 8; ++i)
+    for (int x = 100; x < xmax; x+=100) 
     {
-        grid.add(Point{i100,0},Point{i100,800});
+        grid.add(Point{x,0}, Point{x,ymax});
     }
-    for (int i = 1; i < 8; ++i)
+
+    for (int y = 100; y < ymax; y+=100) 
     {
-        grid.add(Point{0,i100},Point{800,i*100});
+        grid.add(Point{0,y}, Point{xmax,y});
     }
 
     Rectangle rect {Point{0,0}, 100,100};
@@ -41,9 +42,9 @@ int main()
     rect8.set_fill_color(Color::red);
 
 
-    Imagine imag2{Point{200,0}, "catto2.jpg"};
-    Imagine imag3{Point{0,200}, "catto2.jpg"};
-    Imagine imag4{Point{500,300}, "catto2.jpg"};
+    Image imag2{Point{200,0}, "catto2.jpg"};
+    Image imag3{Point{0,200}, "catto2.jpg"};
+    Image imag4{Point{500,300}, "catto2.jpg"};
 
     win.attach(imag2);
     win.attach(imag3);
@@ -63,7 +64,7 @@ int main()
 
     for(int i=0;i<8; ++i)
     {
-        Imagine imag{Point{i*100,i*100}, "catto3.jpg"};
+        Image imag{Point{i*100,i*100}, "catto3.jpg"};
         win.attach(imag);
         win.wait_for_button();
     }
